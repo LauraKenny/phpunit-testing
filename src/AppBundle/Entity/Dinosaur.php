@@ -21,11 +21,18 @@ class Dinosaur
 
     /**
      * @ORM\Column(type="string")
-     */private $genus;
+     */
+    private $genus;
 
     /**
      * @ORM\Column(type="boolean")
-     */private $isCarnivorous;
+     */
+    private $isCarnivorous;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enclosure", inversedBy="dinosaurs")
+     */
+    private $enclosure;
 
     public function __construct(string $genus = 'Unknown', bool $isCarnivorous = true)
     {
