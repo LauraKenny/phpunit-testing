@@ -8,6 +8,7 @@ use AppBundle\Exception\DinosaursAreRunningRampantException;
 use AppBundle\Exception\NotABuffetException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Collection;
 
 /**
  * @ORM\Entity
@@ -75,6 +76,14 @@ class Enclosure
         }
 
         return false;
+    }
+
+    /**
+     * @return Collection|Security[]
+     */
+    public function getSecurities()
+    {
+        return $this->securities;
     }
 
     public function canAddDinosaur(Dinosaur $dinosaur): bool
